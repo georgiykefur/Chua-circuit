@@ -39,7 +39,7 @@ const int preset = 2;
 | 1 | `default` |
 | 2 | `onecoil` |
 | 3 | `periodic` |
-| 4 | `chaotic` |
+| 4 | `staz` |
 | 5 | `periodic2` |
 
 
