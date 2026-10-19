@@ -6,7 +6,7 @@ from matplotlib.animation import FuncAnimation
 # настройка
 start_time = 0.0 
 frames = 600
-interval = 60
+interval = 10
 
 folder = Path(__file__).resolve().parent
 data = [np.loadtxt(folder / name, delimiter=",", skiprows=1) for name in ["trajectory.csv", "trajectory_ab4.csv"]]

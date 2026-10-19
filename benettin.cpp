@@ -53,6 +53,13 @@ void calculate_lyapunov(bool use_ab4) {
             }
 
             for (int i = 0; i < 3; i++) {
+                if (!isfinite(next[i]) || !isfinite(near_next[i])
+                    || abs(next[i]) > amplitude_limit
+                    || abs(near_next[i]) > amplitude_limit) {
+                    cout << method << "превышен порог амплитуды\n";
+                    return;
+                }
+
                 state[i] = next[i];
                 nearby[i] = near_next[i];
             }
@@ -79,6 +86,11 @@ void calculate_lyapunov(bool use_ab4) {
         }
 
         distance = sqrt(distance);
+        
+        if (distance == 0.0 || !isfinite(distance)) {
+            cout << method << ": расстояние между траекториями потеряно. ";
+            return;
+        }
 
         // логарифм увеличения расстояния
         double stretching = log(distance / lyap_delta);

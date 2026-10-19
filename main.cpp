@@ -20,7 +20,6 @@ int main() {
     file << setprecision(17) << "tau,x,y,z\n";
     file << tau << ',' << state[0] << ',' << state[1] << ',' << state[2] << '\n';
 
-    int attempts = 0;
     while (tau < tau_end) {
         double remaining = tau_end - tau;
         step = min(step, min(max_step, remaining));
